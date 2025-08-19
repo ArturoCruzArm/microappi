@@ -25,10 +25,12 @@ body {
 .container {
     transform-style: preserve-3d;
     perspective: 1000px;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .title {
-    font-size: 7rem;
+    font-size: 7vw; /* Responsive font size */
     font-weight: 700;
     transform: translateZ(50px);
     text-shadow: 
@@ -45,18 +47,26 @@ body {
         0 10px 10px rgba(0,0,0,.2), 
         0 20px 20px rgba(0,0,0,.15);
     transition: transform 0.5s ease;
+    white-space: nowrap; /* Prevent text wrapping */
+    min-font-size: 40px; /* Minimum font size for very small screens */
+    max-font-size: 100px; /* Maximum font size for very large screens */
 }
 
 .title:hover {
     transform: translateZ(60px) rotateX(10deg);
 }
 
-.visitor-counter {
-    margin-top: 40px;
-    font-size: 1.5rem;
-    background: rgba(0, 0, 0, 0.2);
-    padding: 10px 20px;
-    border-radius: 50px;
-    display: inline-block;
-    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .title {
+        font-size: 10vw;
+        min-font-size: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 12vw;
+        min-font-size: 25px;
+    }
 }
