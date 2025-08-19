@@ -1,39 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(to right, #232526, #414345);
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(45deg, #0f2027, #203a43, #2c5364);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     text-align: center;
+    overflow: hidden;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .container {
-    animation: fadeIn 2s ease-in-out;
+    transform-style: preserve-3d;
+    perspective: 1000px;
 }
 
 .title {
-    font-size: 5rem;
-    font-weight: bold;
-    letter-spacing: 5px;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.2), 0 0 20px rgba(255, 255, 255, 0.2);
+    font-size: 7rem;
+    font-weight: 700;
+    transform: translateZ(50px);
+    text-shadow: 
+        0 1px 0 #ccc, 
+        0 2px 0 #c9c9c9, 
+        0 3px 0 #bbb, 
+        0 4px 0 #b9b9b9, 
+        0 5px 0 #aaa, 
+        0 6px 1px rgba(0,0,0,.1), 
+        0 0 5px rgba(0,0,0,.1), 
+        0 1px 3px rgba(0,0,0,.3), 
+        0 3px 5px rgba(0,0,0,.2), 
+        0 5px 10px rgba(0,0,0,.25), 
+        0 10px 10px rgba(0,0,0,.2), 
+        0 20px 20px rgba(0,0,0,.15);
+    transition: transform 0.5s ease;
+}
+
+.title:hover {
+    transform: translateZ(60px) rotateX(10deg);
 }
 
 .visitor-counter {
-    margin-top: 20px;
-    font-size: 1.2rem;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    margin-top: 40px;
+    font-size: 1.5rem;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 10px 20px;
+    border-radius: 50px;
+    display: inline-block;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
 }
